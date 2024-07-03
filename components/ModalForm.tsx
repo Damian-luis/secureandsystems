@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField, Modal } from '@mui/material';
 import { sendEmail } from '@/pages/api/sendEmail';
+
+
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -13,22 +15,30 @@ const style = {
   p: 4,
 };
 
+
+
 const ModalForm: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [message, setMessage] = useState('');
   const [mail, setMail] = useState('');
+  const [loading, setLoading] = useState(false)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+ 
   const handleSubmit = async(event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true)
     try {
       await sendEmail({ name, lastname, mail ,message});
       handleClose();
     } catch (error) {
+      
       console.error('Failed to send email', error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -78,7 +88,7 @@ const ModalForm: React.FC = () => {
               required
             />
             <Button type="submit" variant="contained" style={{backgroundColor:"#673AB7"}}>
-              Enviar
+            {loading ? 'Enviando...' : 'Enviar'}
             </Button>
           </form>
         </Box>
