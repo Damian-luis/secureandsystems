@@ -1,7 +1,7 @@
 // ModalForm.tsx
 import React, { useState } from 'react';
 import { Box, Button, TextField, Modal } from '@mui/material';
-
+import { sendEmail } from '@/pages/api/sendEmail';
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -16,17 +16,20 @@ const style = {
 const ModalForm: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [description, setDescription] = useState('');
-  const [interests, setInterests] = useState('');
-
+  const [lastname, setLastname] = useState('');
+  const [message, setMessage] = useState('');
+  const [mail, setMail] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async(event: React.FormEvent) => {
     event.preventDefault();
-    console.log({ name, surname, description, interests });
-    handleClose();
+    try {
+      await sendEmail({ name, lastname, mail ,message});
+      handleClose();
+    } catch (error) {
+      console.error('Failed to send email', error);
+    }
   };
 
   return (
@@ -54,16 +57,24 @@ const ModalForm: React.FC = () => {
               fullWidth
               margin="normal"
               label="Apellido"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+              required
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Correo"
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
               required
             />
             <TextField
               fullWidth
               margin="normal"
               label="Mensaje"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               required
             />
             <Button type="submit" variant="contained" style={{backgroundColor:"#673AB7"}}>

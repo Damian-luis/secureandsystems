@@ -1,40 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MarketApp Frontend
 
-## Getting Started
+Este proyecto es una aplicación web creada con Next.js y TypeScript para una prueba técnica en Security and System. La aplicación tiene varias funcionalidades, incluyendo un login, una ruta protegida, gestión de intereses, y el envío de correos electrónicos.
 
-First, run the development server:
+## Requisitos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 o superior)
+- npm (v6 o superior)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instrucciones para clonar el proyecto e instalar dependencias
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Clona este repositorio en tu máquina local:
+    
+    git clone https://github.com/Damian-luis/secureandsystems.git
+    
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. Navega al directorio del proyecto:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Instala las dependencias:
+   
+    npm install
+    
 
-## Learn More
+4. Crea un archivo `.env` en la raíz del proyecto y añade las  variables de entorno que se enviaron por mail 
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Inicia la aplicación en modo de desarrollo:
+ 
+    npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Funcionalidades
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Estado local con intereses precargados
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+La aplicación carga un estado local con una lista de intereses precargados. Los usuarios pueden añadir más intereses a esta lista.
+
+### Añadir intereses
+
+Los usuarios pueden añadir nuevos intereses a la lista. Estos intereses se gestionan en el estado local de la aplicación.
+
+### Login y ruta protegida
+
+La aplicación incluye un sistema de autenticación simple. La página de inicio de sesión es la principal y la página de inicio es una ruta protegida. Los usuarios deben iniciar sesión para acceder a la página de inicio.
+
+### Envío de correos electrónicos
+
+La aplicación permite enviar correos electrónicos mediante un formulario de contacto. Los correos se envían tanto al usuario que se contacta como al propietario de la aplicación.
+
+## Estructura del proyecto
+
+```plaintext
+sandsapp/
+├── components/
+├── layouts/
+│   └── MainLayout.tsx
+├── pages/
+│   ├── index.tsx
+│   ├── login.tsx
+│   └── _app.tsx
+├── styles/
+│   ├── Home.module.css
+│   ├── Layout.module.css
+│   ├── Login.module.css
+│   └── MainLayout.module.css
+├── utils/
+│   └── auth.ts
+├── public/
+├── .env
+├── next-env.d.ts
+├── tsconfig.json
+├── package.json
+└── README.md
