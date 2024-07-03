@@ -3,7 +3,7 @@ import styles from './AddInterestCard.module.css';
 interface HeaderProps {
   addInterest:(interest: string) => void;
 }
-const ContactForm: React.FC = ({addInterest}) => {
+const ContactForm: React.FC <HeaderProps>= ({addInterest}) => {
   const [newInterest, setNewInterest] = useState('');
 
   const handleAddInterest = () => {
