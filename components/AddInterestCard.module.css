@@ -1,0 +1,25 @@
+.input {
+    padding: 10px;
+    border-radius: 5px;
+}
+.button {
+    background-color:#673AB7;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 80px;
+    font-size: medium;
+}
+
+.contactFormDown {
+    display: flex;
+    gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .contactFormDown {
+        display: flex;
+        justify-content: center;
+    }
+}

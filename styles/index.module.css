@@ -1,0 +1,46 @@
+.main {
+    width:100%;
+    height:100vh;
+    background-color:#673AB7
+}
+.logincontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.login {
+    width: 20%;
+    height: auto;
+    background-color: white;
+    padding: 6%;
+    border-radius: 5%;
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+ }
+ .label {
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+ }
+.button {
+    background-color:#673AB7;
+    color:white;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    width: 80px;
+    font-size: medium;
+}
+
+@media screen and (max-width: 600px) {
+    .login {
+        width: 60%;
+    }
+}

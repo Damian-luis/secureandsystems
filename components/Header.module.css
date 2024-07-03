@@ -1,0 +1,20 @@
+.header {
+    width: 40%;
+    display: flex;
+    padding: 2%;
+    gap: 20px;
+}
+.h1 {
+    color: rgb(68, 67, 67);
+    font-weight: 800;
+}
+
+@media screen and (max-width: 600px) {
+    .mainUpSide {
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        width: 100%;
+    }
+}

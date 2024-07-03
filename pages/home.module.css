@@ -1,0 +1,37 @@
+.main {
+    width: 100%;
+    height: 100vh;
+}
+.mainUpSide {
+    display: flex;
+    width: 100%;
+}
+.mainUpSideHeader {
+    width: 40%;
+}
+.mainUpSideAbout {
+    width: 60%;
+}
+
+.mainDownSide {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDownSideInterests {
+    display: flex;
+    gap: 50%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .mainUpSide {
+        display: flex;
+        flex-direction: column;
+    }
+    .mainDownSideInterests {
+        display: flex;
+        flex-direction: column;
+    }
+}
